@@ -18,8 +18,12 @@ attr_reader :duration, :rides
     most_popular_ride
   end
 
-  ride object
+  # ride object
   def most_profitable_ride
+    most_profitable_ride = @rides.max_by do |ride|
+      ride.total_revenue
+    end
+    most_profitable_ride
   end
 
   # integer

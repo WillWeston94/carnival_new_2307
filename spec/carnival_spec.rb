@@ -58,5 +58,7 @@ RSpec.describe Carnival do
 
     expect(@ride3.rider_log).to eq(expected_hash)
     expect(@carnival.most_popular_ride).to eq(@ride3)
+    expect(@carnival.most_profitable_ride).to eq(@ride3)
+    expect(@carnival.total_revenue).to eq(7)
   end
 end
