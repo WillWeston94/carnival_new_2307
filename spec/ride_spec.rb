@@ -13,7 +13,7 @@ RSpec.describe Ride do
   end
 
   it 'ride exists with symbyol attributes' do
-    expect(@ride1).to be_a(Ride)
+    expect(@ride1).to be_an_instance_of(Ride)
     expect(@ride1.name).to eq("Carousel")
     expect(@ride1.min_height).to eq(24)
     expect(@ride1.admission_fee).to eq(1)

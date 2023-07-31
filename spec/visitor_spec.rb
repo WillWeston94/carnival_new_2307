@@ -9,7 +9,7 @@ RSpec.describe Visitor do
   end
 
   it 'visitor exists with attributes' do
-    expect(@visitor1).to be_a(Visitor)
+    expect(@visitor1).to be_an_instance_of(Visitor)
     expect(@visitor1.name).to eq("Bruce")
     expect(@visitor1.height).to eq(54)
     expect(@visitor1.spending_money).to eq(10)
