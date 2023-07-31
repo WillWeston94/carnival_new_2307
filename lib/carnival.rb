@@ -1,5 +1,5 @@
 class Carnival
-attr_reader :rides
+attr_reader :duration, :rides
 
   def initialize(duration)
     @duration = duration.to_i
@@ -17,7 +17,7 @@ attr_reader :rides
   # ride object
   def most_profitable_ride
   end
-  
+
   # integer
   def total_revenue
   end
