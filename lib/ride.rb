@@ -21,8 +21,4 @@ class Ride
         @rider_log[visitor] += 1
       end
     end
-    #  create method to match preference or build in to board
-    #  create helper method or build in to method  match visitor height >= min_height for ride
-    #  spending money should -= amount for ride and amount of times ridden
-    #  undefined method matching_pref for vistor object change to visitor
   end
