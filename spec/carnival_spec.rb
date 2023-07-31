@@ -58,7 +58,61 @@ RSpec.describe Carnival do
 
     expect(@ride3.rider_log).to eq(expected_hash)
     expect(@carnival.most_popular_ride).to eq(@ride3)
+  end
+
+  it 'checks most profitable ride at the carnival' do
+    @carnival.add_ride(@ride1)
+    @carnival.add_ride(@ride3)
+
+    @visitor1.add_preference(:gentle)
+    @visitor2.add_preference(:gentle)
+    @visitor2.add_preference(:thrilling) #change from gentle to thrilling for ride3 coaster
+    @visitor3.add_preference(:thrilling)
+    @visitor4.add_preference(:thrilling)
+
+    @ride1.board_rider(@visitor1)
+    @ride1.board_rider(@visitor2)
+    @ride1.board_rider(@visitor1)
+    @ride3.board_rider(@visitor1)
+    @ride3.board_rider(@visitor2)
+    @ride3.board_rider(@visitor1)
+    @ride3.board_rider(@visitor3)
+    @ride3.board_rider(@visitor3)
+    @ride3.board_rider(@visitor4)
+    @ride3.board_rider(@visitor4)
+
+    # expected_hash = 
+    # {
+    # @visitor3 => 2,
+    # @visitor4 => 2,
+    # }
+    
+    # binding.pry
     expect(@carnival.most_profitable_ride).to eq(@ride3)
+  end
+
+  it 'checks total_revenue at the carnival' do
+    @carnival.add_ride(@ride1)
+    @carnival.add_ride(@ride3)
+
+    @visitor1.add_preference(:gentle)
+    @visitor2.add_preference(:gentle)
+    @visitor2.add_preference(:thrilling) #change from gentle to thrilling for ride3 coaster
+    @visitor3.add_preference(:thrilling)
+    @visitor4.add_preference(:thrilling)
+
+    @ride1.board_rider(@visitor1)
+    @ride1.board_rider(@visitor2)
+    @ride1.board_rider(@visitor1)
+    @ride3.board_rider(@visitor1)
+    @ride3.board_rider(@visitor2)
+    @ride3.board_rider(@visitor1)
+    @ride3.board_rider(@visitor3)
+    @ride3.board_rider(@visitor3)
+    @ride3.board_rider(@visitor4)
+    @ride3.board_rider(@visitor4)
+
+    # binding.pry
     expect(@carnival.total_revenue).to eq(11)
   end
 end
