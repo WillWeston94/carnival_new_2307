@@ -18,16 +18,24 @@ RSpec.describe Ride do
     expect(@ride1.total_revenue).to eq(0)
   end
 
-  xit 'adds preference of visitors and boards them for rider_log' do
-     @visitor1.add_preference(:gentle)
-     @visitor2.add_preference(:gentle)
+  it 'adds preference of visitors and boards them for rider_log' do
+    visitor1 = Visitor.new('Bruce', 54, '$10')
+    visitor2 = Visitor.new('Tucker', 36, '$5')
 
-     @ride1.board_rider(visitor1)
-     @ride1.board_rider(visitor2)
-     @ride1.board_rider(visitor1)
+    visitor1.add_preference(:gentle)
+    visitor2.add_preference(:gentle)
 
-    #  expected_hash = {@visitor1, @visitor2}
+    @ride1.board_rider(visitor1)
+    @ride1.board_rider(visitor2)
+    @ride1.board_rider(visitor1)
 
-     expect(@ride1.rider_log).to eq(expected_hash)
+     expected_hash = 
+     {
+      visitor1 => 2 ,
+      visitor2 => 1
+      }
+    # binding.pry
+    expect(@ride1.rider_log).to be_a Hash
+    expect(@ride1.rider_log).to eq(expected_hash)
   end
 end

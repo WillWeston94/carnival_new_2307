@@ -22,4 +22,12 @@ attr_reader :name, :height, :spending_money, :preferences
       false
     end
   end
+
+  def matching_preference?(excitement)
+    preferences.include?(excitement)
+  end
+
+  def money_spent(amount)
+    @spending_money -= amount
+  end
 end
