@@ -116,7 +116,7 @@ RSpec.describe Carnival do
     expect(@carnival.total_revenue).to eq(11)
   end
 
-  it 'provides summary hash for visitor count' do
+  it 'provides summary hash for only visitor count and revenue earned' do
     @carnival.add_ride(@ride1)
     @carnival.add_ride(@ride3)
 
