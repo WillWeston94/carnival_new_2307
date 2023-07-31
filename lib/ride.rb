@@ -15,4 +15,8 @@ class Ride
 
     def board_rider(visitor)
     end
+
+    #  create method to match preference 
+    #  create helper to match visitor height >= min_height for ride
+    #  spending money should -= amount for ride and amount of times ridden
   end
