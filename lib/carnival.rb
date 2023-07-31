@@ -33,4 +33,15 @@ attr_reader :duration, :rides
     end
     total_revenue
   end
+
+  # hash
+  def summary
+    {
+      visitor_count: @rides.map do |ride|
+        ride.rider_log.keys.count
+      end.sum,
+      
+      revenue_earned:total_revenue
+    }
+  end
 end
