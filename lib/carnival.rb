@@ -27,6 +27,10 @@ attr_reader :duration, :rides
   end
 
   # integer
-  # def total_revenue
-  # end
+  def total_revenue
+    total_revenue = @rides.sum do |ride|
+      ride.total_revenue
+    end
+    total_revenue
+  end
 end
